@@ -89,8 +89,12 @@ function renderXCircles(circlesGroup, newXScale, chosenXAxis) {
 
 function renderYCircles(circlesGroup, newYScale, chosenXAxis) {
 
-    circles
-}
+    circlesGroup.transition()
+      .duration(1000)
+      .attr("cy", d => newYScale(d[chosenYAxis]))
+      .attr("dy", d => newYScale(d[chosenYAxis]));
+    return circlesGroup;
+  }
   
   
 
